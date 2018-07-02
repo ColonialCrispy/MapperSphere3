@@ -89,6 +89,33 @@ client.on('message', async (message) => {
         kChannel.send(bembed)
     }
     
+    if (message.content.startsWith(`m!thug`)) {
+        let mUser = message.mentions.users.first()
+        const args29 = cont.slice(1)
+
+        if(!args29) return message.channel.send(`Please insert a value (-150 <-> 150`)
+        if(!mUser) return message.channel.send(`Please specifify a user!`)
+        const mUserA = mUser.avatarURL
+        var imagetobase = `https://i.imgur.com/EgxsA9V.jpg`;
+        Jimp.read(mUser.avatarURL, function (err, imagetouse) {
+            if (err) throw err;
+            imagetouse.quality(60)
+                      .opacity(0.8)
+                      .resize(256, 256)
+                      .write("imagetouse.jpg");
+            Jimp.read(imagetobase, function (err, mydude) {
+                if (err) throw err;
+                mydude.quality(60)
+                      .composite( imagetouse, 400, 212 )
+                      .write("thug.jpg");
+                mydude.getBuffer('image/jpeg', (err, buf) => {
+                    if (err) return err
+                    message.channel.send({files: [{attachment: buf, name: 'thug.jpg'}]})
+                }
+            )}
+        )})
+    }
+    
     if (message.content.startsWith(`m!grey`)) {
         let mUser = message.mentions.users.first()
         const mUserA = mUser.avatarURL
@@ -197,6 +224,126 @@ client.on('message', async (message) => {
 
 
         reportschannel.send(reportEmbed);
+    }
+    
+    if (message.content.startsWith(`m!light`)) {
+        let mUser = message.mentions.users.first()
+        const args29 = cont.slice(1)
+        if(!args29) return message.channel.send(`Please insert a value (-150 <-> 150`)
+        if(!mUser) return message.channel.send(`Please specifify a user!`)
+        const mUserA = mUser.avatarURL
+        Jimp.read(mUser.avatarURL, function (err, mydude) {
+            if (err) throw err;
+            mydude.resize(256, 256)  
+                  .quality(60)
+                  .write("brightlmao.jpg")
+                  .brightness(+0.6)
+            mydude.getBuffer('image/jpeg', (err, buf) => {
+
+                if (err) return err
+                message.channel.send({files: [{attachment: buf, name: 'brightlmao.jpg'}]})
+            })
+        })
+    }
+
+    if (message.content.startsWith(`m!dark`)) {
+        let mUser = message.mentions.users.first()
+        const args29 = cont.slice(1)
+        if(!args29) return message.channel.send(`Please insert a value (-150 <-> 150`)
+        if(!mUser) return message.channel.send(`Please specifify a user!`)
+        const mUserA = mUser.avatarURL
+        Jimp.read(mUser.avatarURL, function (err, mydude) {
+            if (err) throw err;
+            mydude.resize(256, 256)  
+                  .quality(60)
+                  .write("darklmao.jpg")
+                  .brightness(-0.6)
+            mydude.getBuffer('image/jpeg', (err, buf) => {
+
+                if (err) return err
+                message.channel.send({files: [{attachment: buf, name: 'darklmao.jpg'}]})
+            })
+        })
+    }
+
+    if (message.content.startsWith(`m!contrast`)) {
+        let mUser = message.mentions.users.first()
+        const args29 = cont.slice(1)
+        if(!args29) return message.channel.send(`Please insert a value (-150 <-> 150`)
+        if(!mUser) return message.channel.send(`Please specifify a user!`)
+        const mUserA = mUser.avatarURL
+        Jimp.read(mUser.avatarURL, function (err, mydude) {
+            if (err) throw err;
+            mydude.resize(256, 256)  
+                  .quality(60)
+                  .write("contrastlmao.jpg")
+                  .contrast(+0.6)
+            mydude.getBuffer('image/jpeg', (err, buf) => {
+
+                if (err) return err
+                message.channel.send({files: [{attachment: buf, name: 'contrastlmao.jpg'}]})
+            })
+        })
+    }
+
+    if (message.content.startsWith(`m!nocontrast`)) {
+        let mUser = message.mentions.users.first()
+        const args29 = cont.slice(1)
+        if(!args29) return message.channel.send(`Please insert a value (-150 <-> 150`)
+        if(!mUser) return message.channel.send(`Please specifify a user!`)
+        const mUserA = mUser.avatarURL
+        Jimp.read(mUser.avatarURL, function (err, mydude) {
+            if (err) throw err;
+            mydude.resize(256, 256)  
+                  .quality(60)
+                  .write("nocontrastlmao.jpg")
+                  .contrast(-0.6)
+            mydude.getBuffer('image/jpeg', (err, buf) => {
+
+                if (err) return err
+                message.channel.send({files: [{attachment: buf, name: 'nocontrastlmao.jpg'}]})
+            })
+        })
+    }
+
+    if (message.content.startsWith(`m!dither`)) {
+        let mUser = message.mentions.users.first()
+        const args29 = cont.slice(1)
+        if(!args29) return message.channel.send(`Please insert a value (-150 <-> 150`)
+        if(!mUser) return message.channel.send(`Please specifify a user!`)
+        const mUserA = mUser.avatarURL
+        Jimp.read(mUser.avatarURL, function (err, mydude3) {
+            if (err) throw err;
+            mydude3.quality(60)  
+                  .write("dither565lmao.jpg")
+                  .dither565()
+            mydude3.getBuffer('image/jpeg', (err, buf) => {
+
+                if (err) return err
+                message.channel.send({files: [{attachment: buf, name: 'dither565lmao.jpg'}]})
+            })
+        })
+    }
+
+    if (message.content.startsWith(`m!invert`)) {
+        let mUser = message.mentions.users.first()
+        const args29 = cont.slice(1)
+        if(!args29) return message.channel.send(`Please insert a value (-150 <-> 150`)
+        if(!mUser) return message.channel.send(`Please specifify a user!`)
+        const mUserA = mUser.avatarURL
+        Jimp.read(mUser.avatarURL, function (err, mydude) {
+            if (err) throw err;
+            mydude.resize(256, 256)  
+                  .quality(60)
+                  .write("invertlmao.jpg")
+                  .invert()
+                  .composite( src, x, y );   
+            mydude.getBuffer('image/jpeg', (err, buf) => {
+
+                if (err) return err
+                message.channel.send({files: [{attachment: buf, name: 'invertlmao.jpg'}]})
+            })
+        })
     }
 
     ex1 = "./memes/ex1.png"; ex2 = "./memes/ex2.png"; ex3 = "./memes/ex3.png"; ex4 = "./memes/ex4.png"; ex5 = "./memes/ex5.png"; ex6 = "./memes/ex6.png"; ex7 = "./memes/ex7.png"; ex8 = "./memes/ex8.png"; ex9 = "./memes/ex9.png"; ex10 = "./memes/ex10.png"; ex11 = "./memes/ex11.png"; ex12 = "./memes/ex12.png"; ex13 = "./memes/ex13.png"; ex14 = "./memes/ex14.png"; ex15 = "./memes/ex15.png"; ex16 =  "./memes/ex16.png"; ex17 = "./memes/ex17.png"; ex18 = "./memes/ex18.png"; ex19 = "./memes/ex19.png"; ex20 = "./memes/ex20.jpg"; ex21 = "./memes/ex21.png"; ex22 = "./memes/ex22.png"; ex23 = "./memes/ex23.png"; ex24 = "./memes/ex24.png"; ex25 = "./memes/ex25.png"; ex26 = "./memes/ex26.png"; ex27 = "./memes/ex27.png"; ex28 = "./memes/ex28.png"; ex29 = "./memes/ex29.png";
