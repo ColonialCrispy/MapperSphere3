@@ -219,7 +219,7 @@ client.on('message', async (message) => {
         )})
     }
     
-    if (message.content.startsWith(`m!jew`)) {
+    if (message.content.startsWith(`m!wasted`)) {
         let mUser = message.mentions.users.first()
         const args29 = cont.slice(1)
 
