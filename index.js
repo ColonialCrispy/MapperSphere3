@@ -2,7 +2,7 @@ const discord = require ('discord.js');
 const fs = require (`fs`);
 const ms = require (`ms`);
 var client = new discord.Client(); 
-const token = "NDYyODMwOTg1OTEwOTQzNzU0.DhpWag.IWulU9Y1Ub489QZLdNQEDsbWkvY";
+const token = process.env.token;
 let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
 client.on ("ready", () => {
