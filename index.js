@@ -136,6 +136,88 @@ client.on('message', async (message) => {
         
 
     }
+    
+    if (message.content.startsWith(`m!trans`)) {
+        let mUser = message.mentions.users.first()
+        const args29 = cont.slice(1)
+
+        if(!args29) return message.channel.send(`Please insert a value (-150 <-> 150`)
+        if(!mUser) return message.channel.send(`Please specifify a user!`)
+        const mUserA = mUser.avatarURL
+        var imagetobase = `https://i.imgur.com/YYgoI3H.png`;
+        Jimp.read(mUser.avatarURL, function (err, imagetouse) {
+            if (err) throw err;
+            imagetouse.quality(60)
+                      .opacity(0.34)
+                      .resize(256, 256)
+                      .write("imagetouse.jpg");
+            Jimp.read(imagetobase, function (err, mydude) {
+                if (err) throw err;
+                mydude.quality(60)
+                      .resize(256, 256)
+                      .composite( imagetouse, 0, 0 )
+                      .write("thug.jpg");
+                mydude.getBuffer('image/jpeg', (err, buf) => {
+                    if (err) return err
+                    message.channel.send({files: [{attachment: buf, name: 'thug.jpg'}]})
+                }
+            )}
+        )})
+    }
+    
+    if (message.content.startsWith(`m!gay`)) {
+        let mUser = message.mentions.users.first()
+        const args29 = cont.slice(1)
+
+        if(!mUser) return message.channel.send(`Please specifify a user!`)
+        const mUserA = mUser.avatarURL
+        var imagetobase = `https://i.imgur.com/Wzlskgl.jpg`;
+        Jimp.read(mUser.avatarURL, function (err, imagetouse) {
+            if (err) throw err;
+            imagetouse.quality(60)
+                      .opacity(0.34)
+                      .resize(256, 256)
+                      .write("imagetouse.jpg");
+            Jimp.read(imagetobase, function (err, mydude) {
+                if (err) throw err;
+                mydude.quality(60)
+                      .resize(256, 256)
+                      .composite( imagetouse, 0, 0 )
+                      .write("thug.jpg");
+                mydude.getBuffer('image/jpeg', (err, buf) => {
+                    if (err) return err
+                    message.channel.send({files: [{attachment: buf, name: 'thug.jpg'}]})
+                }
+            )}
+        )})
+    }
+
+    if (message.content.startsWith(`m!jew`)) {
+        let mUser = message.mentions.users.first()
+        const args29 = cont.slice(1)
+
+        if(!mUser) return message.channel.send(`Please specifify a user!`)
+        const mUserA = mUser.avatarURL
+        var imagetobase = `https://i.imgur.com/kYoUDCl.png`;
+        Jimp.read(mUser.avatarURL, function (err, imagetouse) {
+            if (err) throw err;
+            imagetouse.quality(60)
+                      .opacity(0.34)
+                      .resize(256, 256)
+                      .write("imagetouse.jpg");
+            Jimp.read(imagetobase, function (err, mydude) {
+                if (err) throw err;
+                mydude.quality(60)
+                      .resize(256, 256)
+                      .composite( imagetouse, 0, 0 )
+                      .write("thug.jpg");
+                mydude.getBuffer('image/jpeg', (err, buf) => {
+                    if (err) return err
+                    message.channel.send({files: [{attachment: buf, name: 'thug.jpg'}]})
+                }
+            )}
+        )})
+    }
 
     if (message.content.startsWith(`m!modlist`)) {
         message.channel.send(`Colonial \n West \n Korean \n Sundal`)
