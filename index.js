@@ -198,7 +198,7 @@ client.on('message', async (message) => {
 
         if(!mUser) return message.channel.send(`Please specifify a user!`)
         const mUserA = mUser.avatarURL
-        var imagetobase = `https://i.imgur.com/kYoUDCl.png`;
+        var imagetobase = `https://i.imgur.com/6jBp4PD.png`;
         Jimp.read(mUser.avatarURL, function (err, imagetouse) {
             if (err) throw err;
             imagetouse.quality(60)
