@@ -87,6 +87,27 @@ client.on('message', async (message) => {
         bembed.setTimestamp()
         kChannel.send(bembed)
     }
+    
+    if (message.content.startsWith(`m!grey`)) {
+        let mUser = message.mentions.users.first()
+        const mUserA = mUser.avatarURL
+        Jimp.read(mUser.avatarURL, function (err, mydude) {
+            
+            if (err) throw err;
+            mydude.resize(256, 256)  
+                  .quality(60)
+                  .greyscale()
+                  .write("lena-small-bw.jpg")
+
+            mydude.getBuffer('image/jpeg', (err, buf) => {
+
+                if (err) return err
+                message.channel.send({files: [{attachment: buf, name: 'lena-small-bw.jpg'}]})
+            })
+        })
+        
+
+    }
 
     if (message.content.startsWith(`m!modlist`)) {
         message.channel.send(`Colonial \n West \n Korean \n Sundal`)
