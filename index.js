@@ -126,7 +126,7 @@ client.on('message', async (message) => {
         message.channel.send(hembed)
     }
 
-    if (message.content.startsWith(`c!warn`)) {
+    if (message.content.startsWith(`m!warn`)) {
         if (!message.member.hasPermission(`MANAGE_MESSAGES`)) return message.channel.send(`You do not have permission to do this!`)
         var wUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if (!wUser) return message.channel.send("Please mention a user!");
@@ -152,7 +152,7 @@ client.on('message', async (message) => {
 
     }
 
-    if (message.content.startsWith(`c!report`)) {
+    if (message.content.startsWith(`m!report`)) {
         if (!message.member.hasPermission(`MANAGE_MESSAGES`)) return message.channel.send(`You do not have permission to do this!`)
         var rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if (!rUser) return message.channel.send("Please mention a user!");
