@@ -121,7 +121,7 @@ client.on('message', async (message) => {
     }
     
     if (message.content.startsWith(`m!say`)) {
-        const args25 = cont.slice(0)
+        const args25 = cont.slice()
         
         const sayMessage = args25.join(" ");
         message.channel.send(sayMessage)
