@@ -121,9 +121,9 @@ client.on('message', async (message) => {
     }
     
     if (message.content.startsWith(`m!say`)) {
-        if(message.author.bot) return;
-         const sayMessage = args.join(" ");
-         message.channel.send(sayMessage)
+        
+        const sayMessage = args.join(" ");
+        message.channel.send(sayMessage)
     }
     
    
