@@ -122,7 +122,7 @@ client.on('message', async (message) => {
     
     if (message.content.startsWith(`m!shove`)) {
         let mUser = message.mentions.users.first()
-        let mUser2 = message.mentions.users.last() || message.author
+        let mUser2 = message.mentions.users.last() 
         const args29 = cont.slice(1)
         if(!mUser) return message.channel.send(`Please specifify a user!`)
         const mUserA = mUser.avatarURL
