@@ -170,6 +170,33 @@ client.on('message', async (message) => {
             )}
         )})
     }
+    
+    if (message.content.startsWith(`m!minecraft`)) {
+        let mUser = message.mentions.users.first()
+        const args29 = cont.slice(1)
+
+        if(!args29) return message.channel.send(`Please insert a value (-150 <-> 150`)
+        if(!mUser) return message.channel.send(`Please specifify a user!`)
+        const mUserA = mUser.avatarURL
+        var imagetobase = `https://cdn.discordapp.com/attachments/463426578135908352/463677586992660480/maxresdefault_6.jpg`;
+        Jimp.read(mUser.avatarURL, function (err, imagetouse) {
+            if (err) throw err;
+            imagetouse.quality(60)
+                      .opacity(0.8)
+                      .resize(530, 530)
+                      .write("kids.jpg");
+            Jimp.read(imagetobase, function (err, mydude) {
+                if (err) throw err;
+                mydude.quality(60)
+                      .composite( imagetouse, 508, 0 )
+                      .write("kid.jpg");
+                mydude.getBuffer('image/jpeg', (err, buf) => {
+                    if (err) return err
+                    message.channel.send({files: [{attachment: buf, name: 'kid.jpg'}]})
+                }
+            )}
+        )})
+    }
 
     
     if (message.content.startsWith(`m!bully`)) {
