@@ -120,6 +120,14 @@ client.on('message', async (message) => {
         )})
     }
     
+    if (message.content.startsWith(`m!say`)) {
+        if(message.author.bot) return;
+         const sayMessage = args.join(" ");
+         message.channel.send(sayMessage)
+    }
+    
+   
+    
     if (message.content.startsWith(`m!shove`)) {
         let mUser = message.mentions.users.first()
         let mUser2 = message.mentions.users.last() 
