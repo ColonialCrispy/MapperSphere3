@@ -89,6 +89,37 @@ client.on('message', async (message) => {
         kChannel.send(bembed)
     }
     
+    if (message.content.startsWith(`m!fun`)) {
+        const fuembed = new discord.RichEmbed
+        fuembed.setThumbnail(message.guild.iconURL)
+        fuembed.setTitle(`List of Fun Commands!`)
+        fuembed.addField(`m!8ball`, `A simple 8ball command`)
+        fuembed.addField(`m!safe`, `Your safe space.` )
+        fuembed.addField(`m!kiss`, `Kiss command`)
+        fuembed.addField(`m!weeb`, `You're a weeb`)
+        fuembed.addField(`m!pride`, `Gay Pride`)
+        fuembed.addField(`m!bully`, `Bully a user`)
+        fuembed.addField(`m!shove`, `Shove a user into a locker`)
+        fuembed.addField(`m!tranny`, `Makes u trans`)
+        fuembed.addField(`m!gay`, `Makes u gay`)
+        fuembed.addField(`m!commie`, `Makes you a commie`)
+        fuembed.addField(`m!grey`, `makes u grey`)
+        fuembed.addField(`m!jew`, `Image manipulation`)
+        fuembed.addField(`m!wasted`, `Image manipulation`)
+        fuembed.addField(`m!contrast`, `Image manipulation`)
+        fuembed.addField(`m!dark`, `Image manipulation`)
+        fuembed.addField(`m!light`, `Image manipulation`)
+        fuembed.addField(`m!noncontrast`, `Image manipulation`)
+        fuembed.addField(`m!dither`, `Image manipulation`)
+        fuembed.addField(`m!invert`, `Image manipulation`)
+        fuembed.addField(`m!thug`, `Image manipulation`)
+        fuembed.addField(`m!say`, `Image manipulation`)
+        fuembed.setColor(`RANDOM`)
+        message.channel.send(fuembed)
+
+
+    }
+    
     if (message.content.startsWith(`m!safe`)) {
         let mUser = message.mentions.users.first()
         const args29 = cont.slice(1)
@@ -98,6 +129,33 @@ client.on('message', async (message) => {
         const mUserA = mUser.avatarURL
         var imagetobase = `https://cdn.discordapp.com/attachments/459815018230317059/463530972152070144/Screen_Shot_2018-07-02_at_11.32.36_AM.png`;
         Jimp.read(mUser.avatarURL, function (err, imagetouse) {
+            if (err) throw err;
+            imagetouse.quality(60)
+                      .opacity(0.8)
+                      .resize(595, 594)
+                      .write("queerkid.jpg");
+            Jimp.read(imagetobase, function (err, mydude) {
+                if (err) throw err;
+                mydude.quality(60)
+                      .composite( imagetouse, 1430, 0 )
+                      .write("queer.jpg");
+                mydude.getBuffer('image/jpeg', (err, buf) => {
+                    if (err) return err
+                    message.channel.send(`Don't worry, you're safe now ;)`, {files: [{attachment: buf, name: 'queer.jpg'}]})
+                }
+            )}
+        )})
+    }
+    
+    if (message.content.includes(`hate`)) {
+        let mUser = message.mentions.users.first()
+        const args29 = cont.slice(1)
+
+        if(!args29) return message.channel.send(`Please insert a value (-150 <-> 150`)
+        if(!mUser) return message.channel.send(`Please specifify a user!`)
+        const mUserA = mUser.avatarURL
+        var imagetobase = `https://cdn.discordapp.com/attachments/459815018230317059/463530972152070144/Screen_Shot_2018-07-02_at_11.32.36_AM.png`;
+        Jimp.read(message.author.avatarURL, function (err, imagetouse) {
             if (err) throw err;
             imagetouse.quality(60)
                       .opacity(0.8)
