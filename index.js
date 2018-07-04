@@ -152,7 +152,6 @@ client.on('message', async (message) => {
         const args29 = cont.slice(1)
 
         if(!args29) return message.channel.send(`Please insert a value (-150 <-> 150`)
-        if(!mUser) return message.channel.send(`Please specifify a user!`)
         const mUserA = mUser.avatarURL
         var imagetobase = `https://cdn.discordapp.com/attachments/459815018230317059/463530972152070144/Screen_Shot_2018-07-02_at_11.32.36_AM.png`;
         Jimp.read(message.author.avatarURL, function (err, imagetouse) {
