@@ -70,7 +70,7 @@ client.on('message', async (message) => {
     if (message.content.startsWith(`m!kick`)) {
         const args7 = cont.slice(1)
         const args8 = args7.join(" ")
-        const kChannel = message.guild.channels.find(`name`, `conversation`)
+        const kChannel = message.guild.channels.find(`name`, `logs`)
         if (!message.member.hasPermission(`KICK_MEMBERS`)) return message.channelhannel.send(`You're not allowed to do that!`)
         var member = message.mentions.members.first();
         member.kick().then((member) => {
@@ -607,7 +607,7 @@ client.on('message', async (message) => {
     }
 
     if (message.content.startsWith(`m!ban`)) {
-        const kChannel = message.guild.channels.find(`name`, `senate`)
+        const kChannel = message.guild.channels.find(`name`, `logs`)
         const args5 = cont.slice(1)
         const args6 = args5.join(" ")
         if (!message.member.hasPermission(`BAN_MEMBERS`)) return message.channel.send(`You're not allowed to do that!`)
@@ -658,8 +658,8 @@ client.on('message', async (message) => {
         warnEmbed.addField("Reason", reason);
         warnEmbed.setThumbnail(message.guild.iconURL)
 
-        var warnchannel = message.guild.channels.find(`name`, "senate");
-        if (!warnchannel) return message.channel.send("**Can't find senate channel.**");
+        var warnchannel = message.guild.channels.find(`name`, "logs");
+        if (!warnchannel) return message.channel.send("**Can't find logs channel.**");
 
 
         warnchannel.send(warnEmbed);
@@ -684,8 +684,8 @@ client.on('message', async (message) => {
         reportEmbed.addField("Reason", reason);
         reportEmbed.setThumbnail(message.guild.iconURL)
 
-        var reportschannel = message.guild.channels.find(`name`, "senate");
-        if (!reportschannel) return message.channel.send("**Can't find senate channel.**");
+        var reportschannel = message.guild.channels.find(`name`, "logs");
+        if (!reportschannel) return message.channel.send("**Can't find logs channel.**");
 
 
         reportschannel.send(reportEmbed);
