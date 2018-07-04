@@ -9,6 +9,8 @@ let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 client.on ("ready", () => {
     console.log ("Colonial >.<")
     client.user.setActivity ("m!help")
+    client.user.setAvatar("https://cdn.discordapp.com/attachments/459817725095575558/464146169409437696/mappersphere_2.png")
+    client.user.setUsername("Mappersphere")
 
     answered = true;
     cAnswer = "";
